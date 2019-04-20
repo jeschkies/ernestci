@@ -6,3 +6,7 @@ build
 
 # Ignore Rust
 target
+
+#Project
+workspace.xml
+tasks.xml
