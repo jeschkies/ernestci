@@ -16,4 +16,3 @@ object Server extends HttpApp {
     startServer("localhost", 1899)
   }
 }
-
