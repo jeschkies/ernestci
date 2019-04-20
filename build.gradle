@@ -27,3 +27,8 @@ project(':service') {
     }
 }
 
+project(':agent') {
+    task cargo {
+        print("Hello")
+    }
+}
