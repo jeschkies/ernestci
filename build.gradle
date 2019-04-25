@@ -28,7 +28,7 @@ project(':service') {
 }
 
 project(':agent') {
-    task cargo {
-        print("Hello")
+    task cargo(type:Exec) {
+        commandLine 'cargo', 'build'
     }
 }
