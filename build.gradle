@@ -30,5 +30,7 @@ project(':service') {
 project(':agent') {
     task cargo(type:Exec) {
         commandLine 'cargo', 'build'
+        inputs.files project.files("${projectDir}/src")
+        outputs.file project.file("${projectDir}/target/debug/agent")
     }
 }
