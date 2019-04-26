@@ -5,9 +5,13 @@ plugins {
 }
 
 ext {
-    scalaVersion = '2.12'
     akkaVersion = '2.5.19'
+    usiBranch = 'master'
+    scalaVersion = '2.12'
 }
+
+// Required to build USI from source.
+repositories { jcenter() }
 
 project(':service') {
     group = 'dev.ernest'
@@ -20,7 +24,7 @@ project(':service') {
     repositories {
         jcenter()
     }
-    
+
     application {
         mainClassName = 'dev.ernest.Server'
     }

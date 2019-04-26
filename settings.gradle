@@ -1,2 +1,11 @@
 rootProject.name = 'ernestci'
 include 'agent', 'service'
+
+sourceControl {
+    gitRepository("https://github.com/mesosphere/usi.git") {
+        producesModule("com.mesosphere.usi:core")
+        producesModule("com.mesosphere.usi:core-models")
+        producesModule("com.mesosphere.usi:mesos-client")
+        producesModule("com.mesosphere.usi:test-utils")
+    }
+}
