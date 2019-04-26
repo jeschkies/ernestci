@@ -1,5 +1,4 @@
 plugins {
-    id 'application'
     id 'cz.alenkacz.gradle.scalafmt' version '1.7.2'
     id 'idea'
     id 'scala'
@@ -28,7 +27,7 @@ project(':service') {
 }
 
 project(':agent') {
-    task cargo(type:Exec) {
+    task assemble(type:Exec) {
         commandLine 'cargo', 'build'
         inputs.files project.files("${projectDir}/src")
         outputs.file project.file("${projectDir}/target/debug/agent")
