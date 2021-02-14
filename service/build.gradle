@@ -2,6 +2,10 @@ dependencies {
     implementation group: 'org.scala-lang', name: 'scala-library', version: scalaVersion
     compile group: 'com.typesafe.akka', name: "akka-http_$scalaVersion",   version: '10.1.8'
     compile group: 'com.typesafe.akka', name: "akka-stream_$scalaVersion", version: akkaVersion
+    
+    compile ('com.mesosphere.usi:core') { version { branch = rootProject.usiBranch } }
+    compile ('com.mesosphere.usi:core-models') { version { branch = usiBranch } }
+    compile ('com.mesosphere.usi:mesos-client') { version { branch = usiBranch } }
 
     // Use Scalatest for testing our library
     testImplementation 'junit:junit:4.12'

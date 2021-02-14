@@ -1,14 +1,17 @@
 plugins {
-    id 'application'
     id 'cz.alenkacz.gradle.scalafmt' version '1.7.2'
     id 'idea'
     id 'scala'
 }
 
 ext {
-    scalaVersion = '2.12'
     akkaVersion = '2.5.19'
+    usiBranch = 'master'
+    scalaVersion = '2.12'
 }
+
+// Required to build USI from source.
+repositories { jcenter() }
 
 project(':service') {
     group = 'dev.ernest'
@@ -21,9 +24,16 @@ project(':service') {
     repositories {
         jcenter()
     }
-    
+
     application {
         mainClassName = 'dev.ernest.Server'
     }
 }
 
+project(':agent') {
+    task assemble(type:Exec) {
+        commandLine 'cargo', 'build'
+        inputs.files project.files("${projectDir}/src")
+        outputs.file project.file("${projectDir}/target/debug/agent")
+    }
+}
